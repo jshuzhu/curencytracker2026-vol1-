@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CurrencyBot - Easy Currency Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1>💱 Currency Converter</h1>
+      <p class="subtitle">Simple &amp; easy to use</p>
+      <div class="status-badge" id="statusBadge">Connecting...</div>
+    </header>
+
+    <!-- Main Converter Card -->
+    <section class="card converter-card">
+
+      <!-- Amount Input -->
+      <div class="field-group">
+        <label for="amountInput">Amount</label>
+        <input
+          type="number"
+          id="amountInput"
+          value="100"
+          min="0.01"
+          step="any"
+          placeholder="Enter amount"
+        />
+      </div>
+
+      <!-- From Currency -->
+      <div class="field-group">
+        <label for="fromCurrency">From</label>
+        <select id="fromCurrency">
+          <option value="USD" selected>🇺🇸 USD - US Dollar</option>
+          <option value="EUR">🇪🇺 EUR - Euro</option>
+          <option value="GBP">🇬🇧 GBP - British Pound</option>
+          <option value="MYR">🇲🇾 MYR - Malaysian Ringgit</option>
+          <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+          <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+          <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+          <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+          <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+          <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+          <option value="HKD">🇭🇰 HKD - Hong Kong Dollar</option>
+          <option value="INR">🇮🇳 INR - Indian Rupee</option>
+          <option value="IDR">🇮🇩 IDR - Indonesian Rupiah</option>
+          <option value="KRW">🇰🇷 KRW - South Korean Won</option>
+          <option value="NZD">🇳🇿 NZD - New Zealand Dollar</option>
+          <option value="PHP">🇵🇭 PHP - Philippine Peso</option>
+          <option value="THB">🇹🇭 THB - Thai Baht</option>
+          <option value="TWD">🇹🇼 TWD - Taiwan Dollar</option>
+          <option value="VND">🇻🇳 VND - Vietnamese Dong</option>
+          <option value="AED">🇦🇪 AED - UAE Dirham</option>
+          <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
+          <option value="BRL">🇧🇷 BRL - Brazilian Real</option>
+          <option value="MXN">🇲🇽 MXN - Mexican Peso</option>
+          <option value="ZAR">🇿🇦 ZAR - South African Rand</option>
+          <option value="TRY">🇹🇷 TRY - Turkish Lira</option>
+          <option value="SEK">🇸🇪 SEK - Swedish Krona</option>
+          <option value="NOK">🇳🇴 NOK - Norwegian Krone</option>
+          <option value="DKK">🇩🇰 DKK - Danish Krone</option>
+          <option value="PLN">🇵🇱 PLN - Polish Zloty</option>
+        </select>
+      </div>
+
+      <!-- Swap Button -->
+      <div class="swap-row">
+        <button id="swapBtn" class="swap-btn" title="Swap currencies">⇅ Swap</button>
+      </div>
+
+      <!-- To Currency -->
+      <div class="field-group">
+        <label for="toCurrency">To</label>
+        <select id="toCurrency">
+          <option value="USD">🇺🇸 USD - US Dollar</option>
+          <option value="EUR">🇪🇺 EUR - Euro</option>
+          <option value="GBP">🇬🇧 GBP - British Pound</option>
+          <option value="MYR" selected>🇲🇾 MYR - Malaysian Ringgit</option>
+          <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+          <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+          <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+          <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+          <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+          <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+          <option value="HKD">🇭🇰 HKD - Hong Kong Dollar</option>
+          <option value="INR">🇮🇳 INR - Indian Rupee</option>
+          <option value="IDR">🇮🇩 IDR - Indonesian Rupiah</option>
+          <option value="KRW">🇰🇷 KRW - South Korean Won</option>
+          <option value="NZD">🇳🇿 NZD - New Zealand Dollar</option>
+          <option value="PHP">🇵🇭 PHP - Philippine Peso</option>
+          <option value="THB">🇹🇭 THB - Thai Baht</option>
+          <option value="TWD">🇹🇼 TWD - Taiwan Dollar</option>
+          <option value="VND">🇻🇳 VND - Vietnamese Dong</option>
+          <option value="AED">🇦🇪 AED - UAE Dirham</option>
+          <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
+          <option value="BRL">🇧🇷 BRL - Brazilian Real</option>
+          <option value="MXN">🇲🇽 MXN - Mexican Peso</option>
+          <option value="ZAR">🇿🇦 ZAR - South African Rand</option>
+          <option value="TRY">🇹🇷 TRY - Turkish Lira</option>
+          <option value="SEK">🇸🇪 SEK - Swedish Krona</option>
+          <option value="NOK">🇳🇴 NOK - Norwegian Krone</option>
+          <option value="DKK">🇩🇰 DKK - Danish Krone</option>
+          <option value="PLN">🇵🇱 PLN - Polish Zloty</option>
+        </select>
+      </div>
+
+      <!-- Convert Button -->
+      <button id="convertBtn" class="convert-btn">Convert Now</button>
+
+      <!-- Result Box -->
+      <div id="resultBox" class="result-box" style="display: none;">
+        <div class="result-main" id="resultMain"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+
+    </section>
+
+    <!-- Quick Convert Buttons -->
+    <section class="card quick-section">
+      <h2>Quick Convert</h2>
+      <p class="help-text">Click any button below for a quick conversion from USD:</p>
+      <div class="quick-grid">
+        <button class="quick-btn" data-to="MYR">🇲🇾 To Ringgit</button>
+        <button class="quick-btn" data-to="SGD">🇸🇬 To Sing Dollar</button>
+        <button class="quick-btn" data-to="EUR">🇪🇺 To Euro</button>
+        <button class="quick-btn" data-to="GBP">🇬🇧 To Pound</button>
+        <button class="quick-btn" data-to="JPY">🇯🇵 To Yen</button>
+        <button class="quick-btn" data-to="AUD">🇦🇺 To AUD</button>
+        <button class="quick-btn" data-to="CNY">🇨🇳 To Yuan</button>
+        <button class="quick-btn" data-to="INR">🇮🇳 To Rupee</button>
+      </div>
+    </section>
+
+    <!-- Live Rates Table -->
+    <section class="card rates-section">
+      <h2>Today's Exchange Rates</h2>
+      <p class="help-text">How much 1 US Dollar (USD) is worth in other currencies:</p>
+      <div class="last-updated" id="ratesLastUpdated">Loading rates...</div>
+      <div class="rates-table-wrap">
+        <table class="rates-table" id="ratesTable">
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>Rate (per 1 USD)</th>
+            </tr>
+          </thead>
+          <tbody id="ratesBody">
+            <!-- Filled by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Natural Language Box (optional advanced feature, kept small) -->
+    <section class="card advanced-section">
+      <details>
+        <summary>Advanced: Type a query in plain English</summary>
+        <form id="nlForm" class="nl-form">
+          <input
+            type="text"
+            id="nlInput"
+            placeholder='e.g. "50 ringgit to dollars" or "1000 yen to SGD"'
+          />
+          <button type="submit">Go</button>
+        </form>
+        <pre id="nlOutput" class="nl-output" style="display:none;"></pre>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <p>Rates from European Central Bank &amp; Open Exchange Rates.<br>Built for CurrencyTracker 2026.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

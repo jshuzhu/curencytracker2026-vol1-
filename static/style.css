@@ -1,0 +1,252 @@
+/* ==========================================================
+   CurrencyBot – Accessible, elder-friendly design
+   Large fonts, generous spacing, high contrast, big targets
+   ========================================================== */
+
+:root {
+  --bg:          #f0f4f8;
+  --card-bg:     #ffffff;
+  --card-border: #d1d5db;
+  --text:        #1e293b;
+  --text-muted:  #64748b;
+  --accent:      #2563eb;
+  --accent-hover:#1d4ed8;
+  --accent-light:#dbeafe;
+  --success-bg:  #ecfdf5;
+  --success-border: #6ee7b7;
+  --success-text:#065f46;
+  --swap-bg:     #f1f5f9;
+  --quick-bg:    #eff6ff;
+  --quick-border:#93c5fd;
+  --radius:      12px;
+  --font:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 18px; }            /* base size – everything scales from here */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+
+/* ---- Layout ---- */
+.container { width: 100%; max-width: 640px; display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* ---- Header ---- */
+.header { text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.15rem; }
+.subtitle { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+.status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #ecfdf5;
+  color: #059669;
+  border: 2px solid #6ee7b7;
+}
+.status-badge.offline {
+  background: #fffbeb;
+  color: #b45309;
+  border-color: #fcd34d;
+}
+
+/* ---- Card ---- */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+/* ---- Field groups ---- */
+.field-group { margin-bottom: 1rem; }
+.field-group label {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.field-group input,
+.field-group select {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--card-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  appearance: auto;                /* keep native dropdown arrow visible */
+  transition: border-color 0.2s;
+}
+.field-group input:focus,
+.field-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+/* ---- Swap row ---- */
+.swap-row { display: flex; justify-content: center; margin: 0.25rem 0 0.75rem; }
+.swap-btn {
+  background: var(--swap-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0.55rem 1.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--accent);
+  transition: all 0.2s;
+}
+.swap-btn:hover { background: var(--accent-light); border-color: var(--accent); }
+
+/* ---- Convert button ---- */
+.convert-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.convert-btn:hover { background: var(--accent-hover); }
+.convert-btn:active { transform: scale(0.98); }
+
+/* ---- Result box ---- */
+.result-box {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 10px;
+  background: var(--success-bg);
+  border: 2px solid var(--success-border);
+}
+.result-main {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--success-text);
+  text-align: center;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+.result-details {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ---- Quick Convert ---- */
+.quick-section h2 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+.help-text { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.65rem;
+}
+.quick-btn {
+  padding: 0.75rem 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: 2px solid var(--quick-border);
+  border-radius: 10px;
+  background: var(--quick-bg);
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.quick-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ---- Rates table ---- */
+.rates-section h2 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+.last-updated { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+
+.rates-table-wrap { overflow-x: auto; }
+.rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.05rem;
+}
+.rates-table th,
+.rates-table td {
+  text-align: left;
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+.rates-table th {
+  font-weight: 700;
+  background: #f8fafc;
+  position: sticky; top: 0;
+}
+.rates-table tbody tr:hover { background: var(--accent-light); }
+
+/* ---- Advanced NL section ---- */
+.advanced-section details summary {
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+.nl-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.nl-form input {
+  flex: 1;
+  font-size: 1.05rem;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+}
+.nl-form input:focus { outline: none; border-color: var(--accent); }
+.nl-form button {
+  padding: 0 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+.nl-output {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* ---- Footer ---- */
+.footer { text-align: center; font-size: 0.85rem; color: var(--text-muted); padding: 0.5rem 0; }
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  html { font-size: 16px; }
+  .quick-grid { grid-template-columns: 1fr 1fr; }
+}
